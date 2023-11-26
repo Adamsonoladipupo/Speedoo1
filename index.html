@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div {
+            width: 200px;
+            height: 40px;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 150px auto;
+            position: relative;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            text-indent: 10px;
+        }
+
+        p {
+            padding: 0 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: fit-content;
+            transform: translate(-200%, -50%);
+            background-color: white;
+            transition: all .5s;
+        }
+
+        p.active {
+            transform: translate(-200%, -150%);
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" onfocus="addText()" onblur="removeText()">
+        <p>text</p>
+    </div>
+    <script>
+        var pTag = document.querySelector("p")
+        var inputTag = document.querySelector("input")
+
+        function addText() {
+            pTag.classList.add("active")
+        }
+
+        function removeText() {
+            if (inputTag.value.length < 1) {
+                pTag.classList.remove("active")
+            }
+        }
+    </script>
+</body>
+</html>
